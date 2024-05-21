@@ -1,0 +1,203 @@
+/*
+pub struct Node {
+    value: i32,
+    next: Option<Box<Node>>,
+}
+
+impl Node {
+    fn new(value: i32) -> Node {
+        Node { value, next: None }
+    }
+
+}
+
+pub struct LinkedList {
+    head: Option<Box<Node>>,
+}
+
+impl LinkedList {
+    fn new() -> LinkedList {
+        LinkedList { head: None }
+    }
+
+    fn nigger(&mut self, value: i32) {
+        let new_node: Box<Node> = Box::new(Node::new(value));
+        match self.head {
+            None => self.head = Some(new_node),
+            Some(ref mut node) => {
+                let mut current: &mut Box<Node> = node;
+                while let Some(ref mut next_node) = current.next {
+                    current = next_node;
+                }
+                current.next = Some(new_node);
+            }
+        }
+    }
+
+    fn remove_last(&mut self) -> Option<i32> {
+        match self.head.as_mut() {
+            None => None,
+            Some(ref mut node) => {
+                if node.next.is_none() {
+                    return self.head.take().map(|node| node.value);
+                }
+
+                let  current = node;
+                while current.next.as_ref().unwrap().next.is_some() {
+                    *current = current.next.as_mut().unwrap();
+                }
+                current.next.take().map(|node| node.value)
+            }
+        }
+
+    }
+
+        fn find (&self, value: i32) -> bool {
+
+            let mut current: &Option<Box<Node>> = &self.head;
+            while let Some(ref node) = current {
+                if node.value == value {
+                    return true;
+                }
+                current = &node.next;
+            }
+            false
+
+        }
+
+
+        fn print_list(&self) {
+
+            let mut current: &Option<Box<Node>> = &self.head;
+            while let Some(ref node) = current {
+                print!("{} -> ", node.value);
+                current = &node.next;
+            }
+            println!("None");
+
+        }
+
+ }
+
+
+fn main() {
+
+
+        let mut link: LinkedList = LinkedList::new();
+
+        link.nigger(1);
+
+        link.nigger(2);
+
+        link.nigger(3);
+
+        link.nigger(4);
+e
+        link.nigger(5);
+
+        link.print_list();
+
+
+        if let Some(value) = link.remove_last() {
+            println!("Removed last element: {}\n", value);
+        } else {
+            println!("List is empty");
+        }
+
+        println!("List find: {}", link.find(4));
+
+    }
+ */
+
+pub struct Node {
+    value: i32,
+    next: Option<Box<Node>>,
+}
+
+impl Node {
+    fn new(value: i32) -> Node {
+        Node { value, next: None }
+    }
+}
+
+pub struct LinkListe {
+    head: Option<Box<Node>>,
+}
+
+impl LinkListe {
+    fn new() -> LinkListe {
+        LinkListe { head: None }
+    }
+
+    fn add(&mut self, value: i32) {
+        let new_node: Box<Node> = Box::new(Node::new(value));
+        match self.head {
+            None => self.head = Some(new_node),
+            Some(ref mut node) => {
+                let mut current: &mut Box<Node> = node;
+                while let Some(ref mut next_node) = current.next {
+                    current = next_node;
+                }
+                current.next = Some(new_node);
+            }
+        }
+    }
+
+    fn remove_last(&mut self) -> Option<i32> {
+        match self.head.as_mut() {
+            None => None,
+            Some(ref mut node) => {
+                if node.next.is_none() {
+                    return self.head.take().map(|node| node.value);
+                }
+
+                let current = node;
+                while current.next.as_ref().unwrap().next.is_some() {
+                    *current = current.next.as_mut().unwrap();
+                }
+                current.next.take().map(|node| node.value)
+            }
+        }
+    }
+
+    fn find(&self, value: i32) -> bool {
+        let mut current: &Option<Box<Node>> = &self.head;
+        while let Some(ref node) = current {
+            if node.value == value {
+                return true;
+            }
+            current = &node.next;
+        }
+        false
+    }
+
+    fn print_list(&self) {
+        let mut current: &Option<Box<Node>> = &self.head;
+        while let Some(ref node) = current {
+            print!("{} -> ", node.value);
+            current = &node.next;
+        }
+        println!("None");
+    }
+}
+
+fn main() {
+    let mut link: LinkListe = LinkListe::new();
+
+    link.add(1);
+
+    link.add(2);
+
+    link.add(3);
+
+    link.add(4);
+
+    link.add(5);
+
+    link.print_list();
+
+    if let Some(value) = Link.remove_last() {
+    } else {
+        println!("list is empty")
+    }
+}
