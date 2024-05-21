@@ -1,7 +1,4 @@
-# BinaryTree-
-## README.md
-
-# Binary Tree Implementation in Rust
+# BinaryTree-byrust
 
 This repository contains a simple implementation of a binary tree in Rust. The code defines a `Node` struct and a `BinaryTree` struct, with methods for creating new nodes, inserting values into the tree, and performing an in-order traversal.
 
